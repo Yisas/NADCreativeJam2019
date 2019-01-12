@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SphereCollider))]
 public class PlayerDetection : MonoBehaviour
 {
     public Transform target;
@@ -45,7 +46,7 @@ public class PlayerDetection : MonoBehaviour
                 {
                     if (!hit.transform.GetComponent<Camouflage>().GetIsCamouflaging())
                     {
-                        Debug.Log("Seeing player");
+                        Debug.Log("AI " + transform.name + " Seeing player");
                     }
                     
                 }
@@ -62,13 +63,13 @@ public class PlayerDetection : MonoBehaviour
             float v = Mathf.Abs(Input.GetAxis("Vertical"));
             if(h+v >= movementDetectionTreshold)
             {
-                Debug.Log("Heard player");
+                Debug.Log("AI " + transform.name + " Heard player");
             }
         }
     }
 
     public void MakeCatHearPlayer()
     {
-        Debug.Log("Heard player");
+        Debug.Log("AI " + transform.name + "Heard player");
     }
 }
