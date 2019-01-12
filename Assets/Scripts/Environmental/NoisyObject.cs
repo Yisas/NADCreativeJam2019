@@ -5,12 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class NoisyObject : MonoBehaviour {
 
-    private PlayerDetection playerDetection;
+    private PlayerDetection[] playerDetections;
     private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
-        playerDetection = FindObjectOfType<PlayerDetection>();
+        playerDetections = FindObjectsOfType<PlayerDetection>();
         audioSource = GetComponent<AudioSource>();
 	}
 	
@@ -23,7 +23,9 @@ public class NoisyObject : MonoBehaviour {
     {
         if(collision.transform.tag == "Player")
         {
-            playerDetection.MakeCatHearPlayer();
+            foreach(PlayerDetection playerDetection in playerDetections)
+                playerDetection.MakeCatHearPlayer();
+
             if(!audioSource.isPlaying)
                 audioSource.Play();
         }

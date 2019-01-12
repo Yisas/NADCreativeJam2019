@@ -6,12 +6,12 @@ public class GameController : MonoBehaviour {
 
     public Transform player;
     private Room activeRoom;
-    private PlayerDetection playerDetection;
+    private PlayerDetection[] playerDetections;
     private float lastAIDetectionZoneMultiplier = 1.0f;
 
     // Use this for initialization
     void Start () {
-        playerDetection = FindObjectOfType<PlayerDetection>();
+        playerDetections = FindObjectsOfType<PlayerDetection>();
 	}
 	
 	// Update is called once per frame
@@ -31,8 +31,11 @@ public class GameController : MonoBehaviour {
     public void SetActiveRoom(Room room, float AIDetectionZoneMultiplier)
     {
         activeRoom = room;
-        playerDetection.GetComponent<SphereCollider>().radius /= lastAIDetectionZoneMultiplier;
-        playerDetection.GetComponent<SphereCollider>().radius *= AIDetectionZoneMultiplier;
+        foreach (PlayerDetection playerDetection in playerDetections)
+        {
+            playerDetection.GetComponent<SphereCollider>().radius /= lastAIDetectionZoneMultiplier;
+            playerDetection.GetComponent<SphereCollider>().radius *= AIDetectionZoneMultiplier;
+        }
         lastAIDetectionZoneMultiplier = AIDetectionZoneMultiplier;
     }
 }
