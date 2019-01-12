@@ -16,11 +16,7 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// DELETEME
-        if(Input.GetButtonDown("Test Button"))
-        {
-            RespawnPlayer();
-        }
+		
 	}
 
     public void RespawnPlayer()
@@ -37,5 +33,10 @@ public class GameController : MonoBehaviour {
             playerDetection.GetComponent<SphereCollider>().radius *= AIDetectionZoneMultiplier;
         }
         lastAIDetectionZoneMultiplier = AIDetectionZoneMultiplier;
+    }
+
+    public void KillPlayer()
+    {
+        RespawnPlayer();
     }
 }

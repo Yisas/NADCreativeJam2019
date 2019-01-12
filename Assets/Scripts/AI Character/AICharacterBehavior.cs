@@ -10,16 +10,18 @@ public class AICharacterBehavior : MonoBehaviour {
     private SeekingPlayerNoise seekingPlayerNoiseBehavior;
     private SeekingPlayerVision seekingPlayerVisionBehavior;
     private Patrol patrolBehavior;
-
     private bool seeingPlayer = false;
     private bool hearingPlayer = false;
     private bool patroling = true;
+
+    private GameController gameController;
 
 	// Use this for initialization
 	void Start () {
         seekingPlayerNoiseBehavior = GetComponent<SeekingPlayerNoise>();
         seekingPlayerVisionBehavior = GetComponent<SeekingPlayerVision>();
         patrolBehavior = GetComponent<Patrol>();
+        gameController = FindObjectOfType<GameController>();
 	}
 	
 	// Update is called once per frame
@@ -62,5 +64,12 @@ public class AICharacterBehavior : MonoBehaviour {
         seekingPlayerNoiseBehavior.enabled = false;
         seekingPlayerVisionBehavior.enabled = false;
         patrolBehavior.enabled = true;
+    }
+
+    public void Attack()
+    {
+        Debug.Log("Attack!");
+        gameController.KillPlayer();
+        BackToPatroling();
     }
 }
