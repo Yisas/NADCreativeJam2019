@@ -66,4 +66,9 @@ public class PlayerDetection : MonoBehaviour
             }
         }
     }
+
+    public void MakeCatHearPlayer()
+    {
+        Debug.Log("Heard player");
+    }
 }
