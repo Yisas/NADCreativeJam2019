@@ -5,10 +5,6 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class SeekingPlayerVision : MonoBehaviour {
-
-    public Transform Target;
-    public float RotationSpeed;
-
     /// <summary>
     /// How close the cat has to be to the player to attack
     /// </summary>
@@ -18,33 +14,61 @@ public class SeekingPlayerVision : MonoBehaviour {
     private NavMeshAgent agent;
     private AICharacterBehavior AIBehavior;
 
-    //values for internal use
-    private Quaternion _lookRotation;
-    private Vector3 _direction;
-    private Vector3 _directionNormalized;
 
-    private void Start()
-    {
+    public GameObject Player;
+    public float timer;
+    public bool PlayerVisible = true;
+    public bool GetPlayer;
+
+    // Use this for initialization
+    void Start () {
+
+        if(Player == null)
+        {
+            Player = Player = GameObject.FindGameObjectWithTag("Player");
+        }
         agent = GetComponent<NavMeshAgent>();
         AIBehavior = GetComponent<AICharacterBehavior>();
+
+        StartCoroutine(seekPlayer());
+
+    }
+
+    IEnumerator seekPlayer()
+    {
+        yield return new WaitForSeconds(timer);
+        if (PlayerVisible)
+        {
+            GetPlayer = true;
+        }
+        //tbd
+        else GetPlayer = false;
+
+    }
+
+    void GotoPlayer()
+    {
+        // Returns if no points have been set up
+        if (Player == null)
+            return;
+
+        // Set the agent to go to the currently selected destination.
+        agent.destination = Player.transform.position;
+
+       
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        //find the vector pointing from our position to the target
-        _directionNormalized = (Target.position - transform.position).normalized;
+    void Update () {
+        if (GetPlayer)
+        {
+            GotoPlayer();
+        }
 
-        //create the rotation we need to be in to look at the target
-        _lookRotation = Quaternion.LookRotation(_directionNormalized);
+        Vector3 direction = (Player.transform.position - transform.position);
 
-        //rotate us over time according to speed until we are in the required rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * RotationSpeed);
 
-        // move towards player as well
-        agent.destination = Target.position;
-
-        if (_direction.magnitude <= proximityDistanceForAttack)
+        if (direction.magnitude <= proximityDistanceForAttack)
         {
             AIBehavior.Attack();
         }
