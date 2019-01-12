@@ -79,6 +79,6 @@ public class AICharacterBehavior : MonoBehaviour {
 
     public bool IsInGracePeriod()
     {
-        return gracePeriodTimer <= 0;
+        return gracePeriodTimer > 0;
     }
 }

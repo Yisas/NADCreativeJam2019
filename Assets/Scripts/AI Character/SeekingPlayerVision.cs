@@ -13,9 +13,15 @@ public class SeekingPlayerVision : MonoBehaviour {
     // References
     private NavMeshAgent agent;
     private AICharacterBehavior AIBehavior;
+    private PlayerDetection playerDetection;
+    private Vector3 lastKnownPlayerPosition;
 
+    /// <summary>
+    /// Distance to last known player position at which cat will just go back to patrol
+    /// </summary>
+    public float proximityToDestinationTreshold;
 
-    public GameObject Player;
+    public Transform Player;
     public float timer;
     private Camouflage camouflage;
     public bool GetPlayer;
@@ -25,11 +31,12 @@ public class SeekingPlayerVision : MonoBehaviour {
 
         if(Player == null)
         {
-            Player = Player = GameObject.FindGameObjectWithTag("Player");
+            Player = GameObject.FindGameObjectWithTag("Player").transform;
         }
         agent = GetComponent<NavMeshAgent>();
         AIBehavior = GetComponent<AICharacterBehavior>();
         camouflage = FindObjectOfType<Camouflage>();
+        playerDetection = GetComponent<PlayerDetection>();
 
         StartCoroutine(seekPlayer());
     }
@@ -52,8 +59,12 @@ public class SeekingPlayerVision : MonoBehaviour {
         if (Player == null)
             return;
 
-        // Set the agent to go to the currently selected destination.
-        agent.destination = Player.transform.position;
+        // Set the agent to go to the last seen player position
+        if (playerDetection.CheckIfPlayerIsInLineOfSight())
+        {
+            lastKnownPlayerPosition = Player.position;
+            agent.destination = lastKnownPlayerPosition;
+        }
     }
 
     // Update is called once per frame
@@ -68,6 +79,12 @@ public class SeekingPlayerVision : MonoBehaviour {
         if (direction.magnitude <= proximityDistanceForAttack)
         {
             AIBehavior.Attack();
+            return;
+        }
+
+        if((transform.position - lastKnownPlayerPosition).magnitude <= proximityToDestinationTreshold)
+        {
+            AIBehavior.BackToPatroling();
         }
     }
 }

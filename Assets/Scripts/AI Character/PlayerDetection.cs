@@ -76,4 +76,30 @@ public class PlayerDetection : MonoBehaviour
     {
         AIBehavior.AIHeardPlayer();
     }
+
+    public bool CheckIfPlayerIsInLineOfSight()
+    {
+        // Cone of sight detection
+        if (Vector3.Angle(target.position - headPosition.position, headPosition.forward) < fowAngle)
+        {
+            //Debug.Log("Inside cone of sight");
+            RaycastHit hit;
+
+            // Inside cone of vision of the character, but still have to check for obstacles
+            Physics.Raycast(headPosition.position, target.position - headPosition.position, out hit, Mathf.Infinity, layerMask);
+            if (hit.transform)
+            {
+                if (hit.transform.tag == "Player")
+                {
+                    if (!hit.transform.GetComponent<Camouflage>().GetIsCamouflaging())
+                    {
+                        return true;
+                    }
+
+                }
+            }
+        }
+
+        return false;
+    }
 }
