@@ -17,6 +17,8 @@ public class PlayerDetection : MonoBehaviour
     /// </summary>
     public float movementDetectionTreshold = 0.2f;
 
+    private AICharacterBehavior AIBehavior;
+
     /// <summary>
     /// Layers to ignore in the raycast, mainly the AI character itself
     /// </summary>
@@ -27,6 +29,8 @@ public class PlayerDetection : MonoBehaviour
     {
         layerMask = 1 << 8;
         layerMask = ~layerMask;
+
+        AIBehavior = GetComponent<AICharacterBehavior>();
     }
 
     // Update is called once per frame
@@ -46,7 +50,7 @@ public class PlayerDetection : MonoBehaviour
                 {
                     if (!hit.transform.GetComponent<Camouflage>().GetIsCamouflaging())
                     {
-                        Debug.Log("AI " + transform.name + " Seeing player");
+                        AIBehavior.AISawPlayer();
                     }
                     
                 }
@@ -63,13 +67,13 @@ public class PlayerDetection : MonoBehaviour
             float v = Mathf.Abs(Input.GetAxis("Vertical"));
             if(h+v >= movementDetectionTreshold)
             {
-                Debug.Log("AI " + transform.name + " Heard player");
+                AIBehavior.AIHeardPlayer();
             }
         }
     }
 
     public void MakeCatHearPlayer()
     {
-        Debug.Log("AI " + transform.name + "Heard player");
+        AIBehavior.AIHeardPlayer();
     }
 }
