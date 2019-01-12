@@ -10,6 +10,11 @@ public class PlayerDetection : MonoBehaviour
     /// </summary>
     public Transform headPosition;
     public float fowAngle;
+    public float sphereOfHearingRadius;
+    /// <summary>
+    /// Sensitivity of how small the player input should be in order to hear the player
+    /// </summary>
+    public float movementDetectionTreshold = 0.2f;
 
     /// <summary>
     /// Layers to ignore in the raycast, mainly the AI character itself
@@ -26,10 +31,10 @@ public class PlayerDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Cone of vision
+        // Cone of sight detection
         if (Vector3.Angle(target.position - headPosition.position, headPosition.forward) < fowAngle)
         {
-            Debug.Log("Inside cone of sight");
+            //Debug.Log("Inside cone of sight");
             RaycastHit hit;
 
             // Inside cone of vision of the character, but still have to check for obstacles
@@ -38,14 +43,27 @@ public class PlayerDetection : MonoBehaviour
             {
                 if(hit.transform.tag == "Player")
                 {
-                    Debug.Log("Detected player");
+                    if (!hit.transform.GetComponent<Camouflage>().GetIsCamouflaging())
+                    {
+                        Debug.Log("Seeing player");
+                    }
+                    
                 }
             }
-            else
-            {
-                Debug.DrawRay(headPosition.position, target.position - headPosition.position * 1000, Color.red);
-            }
+        }
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            // Player is inside listening radius, check for movement through user input
+            float h = Mathf.Abs(Input.GetAxis("Horizontal"));
+            float v = Mathf.Abs(Input.GetAxis("Vertical"));
+            if(h+v >= movementDetectionTreshold)
+            {
+                Debug.Log("Heard player");
+            }
         }
     }
 }

@@ -78,4 +78,9 @@ public class Camouflage : MonoBehaviour {
             canCAmouflage = true;            
         }
     }
+
+    public bool GetIsCamouflaging()
+    {
+        return isCamouflaging;
+    }
 }
