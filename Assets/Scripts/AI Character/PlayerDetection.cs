@@ -58,7 +58,7 @@ public class PlayerDetection : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
@@ -67,13 +67,15 @@ public class PlayerDetection : MonoBehaviour
             float v = Mathf.Abs(Input.GetAxis("Vertical"));
             if(h+v >= movementDetectionTreshold)
             {
-                AIBehavior.AIHeardPlayer();
+                Vector3 SoundPosition = other.transform.position;
+                Debug.Log("Sound position is: " + SoundPosition);
+                AIBehavior.AIHeardPlayer(new Vector3(SoundPosition.x, 0.0f, SoundPosition.z));
             }
         }
     }
 
     public void MakeCatHearPlayer()
     {
-        AIBehavior.AIHeardPlayer();
+       // AIBehavior.AIHeardPlayer();
     }
 }
