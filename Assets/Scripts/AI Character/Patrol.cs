@@ -47,4 +47,14 @@ public class Patrol : MonoBehaviour
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
             GotoNextPoint();
     }
+
+    public void StopMoving()
+    {
+        agent.isStopped = true;
+    }
+
+    public void KeepMoving()
+    {
+        agent.isStopped = false;
+    }
 }

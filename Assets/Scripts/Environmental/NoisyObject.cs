@@ -24,7 +24,7 @@ public class NoisyObject : MonoBehaviour {
         if(collision.transform.tag == "Player")
         {
             foreach(PlayerDetection playerDetection in playerDetections)
-                playerDetection.MakeCatHearPlayer();
+                playerDetection.MakeCatHearPlayer(transform.position);
 
             if(!audioSource.isPlaying)
                 audioSource.Play();

@@ -17,6 +17,7 @@ public class AICharacterBehavior : MonoBehaviour {
     public float gracePeriodTime;
     private float gracePeriodTimer = 0;
 
+    public float timer = 2;
     private GameController gameController;
 
 	// Use this for initialization
@@ -32,7 +33,7 @@ public class AICharacterBehavior : MonoBehaviour {
         gracePeriodTimer -= Time.deltaTime;
 	}
 
-    public void AIHeardPlayer()
+    public void AIHeardPlayer(Vector3 SoundPosition)
     {
         Debug.Log("AI " + transform.name + " Heard player");
 
@@ -42,8 +43,12 @@ public class AICharacterBehavior : MonoBehaviour {
 
         hearingPlayer = true;
         patroling = false;
-        seekingPlayerNoiseBehavior.enabled = true;
+        patrolBehavior.StopMoving();
         patrolBehavior.enabled = false;
+        seekingPlayerNoiseBehavior.enabled = true;
+        seekingPlayerNoiseBehavior.Init(SoundPosition);
+        StartCoroutine(BackToPatrol());
+        
     }
 
     public void AISawPlayer()
@@ -67,6 +72,7 @@ public class AICharacterBehavior : MonoBehaviour {
         seekingPlayerNoiseBehavior.enabled = false;
         seekingPlayerVisionBehavior.enabled = false;
         patrolBehavior.enabled = true;
+        patrolBehavior.KeepMoving();
     }
 
     public void Attack()
@@ -80,5 +86,11 @@ public class AICharacterBehavior : MonoBehaviour {
     public bool IsInGracePeriod()
     {
         return gracePeriodTimer > 0;
+    }
+
+    IEnumerator BackToPatrol()
+    {
+        yield return new WaitForSeconds(timer);
+        BackToPatroling();
     }
 }

@@ -27,7 +27,10 @@ public class PlayerDetection : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        layerMask = 1 << 8;
+        int layerMask1 = 1 << 8;    // Cat itself
+        int layerMask2 = 1 << 9;    // Room triggers
+        int layerMask3 = 1 << 10;   // Floor
+        layerMask = layerMask1 | layerMask2 | layerMask3;
         layerMask = ~layerMask;
 
         AIBehavior = GetComponent<AICharacterBehavior>();
@@ -44,8 +47,10 @@ public class PlayerDetection : MonoBehaviour
 
             // Inside cone of vision of the character, but still have to check for obstacles
             Physics.Raycast(headPosition.position, target.position - headPosition.position, out hit, Mathf.Infinity, layerMask);
+            Debug.DrawRay(headPosition.position, target.position - headPosition.position, Color.red);
             if(hit.transform)
             {
+                Debug.Log("Sight raycast hit " + hit.transform.name);
                 if(hit.transform.tag == "Player")
                 {
                     if (!hit.transform.GetComponent<Camouflage>().GetIsCamouflaging())
@@ -58,7 +63,7 @@ public class PlayerDetection : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
@@ -67,14 +72,16 @@ public class PlayerDetection : MonoBehaviour
             float v = Mathf.Abs(Input.GetAxis("Vertical"));
             if(h+v >= movementDetectionTreshold)
             {
-                AIBehavior.AIHeardPlayer();
+                Vector3 SoundPosition = other.transform.position;
+                Debug.Log("Sound position is: " + SoundPosition);
+                AIBehavior.AIHeardPlayer(new Vector3(SoundPosition.x, 0.0f, SoundPosition.z));
             }
         }
     }
 
-    public void MakeCatHearPlayer()
+    public void MakeCatHearPlayer(Vector3 position)
     {
-        AIBehavior.AIHeardPlayer();
+        AIBehavior.AIHeardPlayer(position);
     }
 
     public bool CheckIfPlayerIsInLineOfSight()
