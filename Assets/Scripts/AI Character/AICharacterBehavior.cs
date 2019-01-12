@@ -30,7 +30,7 @@ public class AICharacterBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        gracePeriodTimer -= Time.deltaTime;
 	}
 
     public void AIHeardPlayer(Vector3 SoundPosition)
@@ -80,6 +80,12 @@ public class AICharacterBehavior : MonoBehaviour {
         Debug.Log("Attack!");
         gameController.KillPlayer();
         BackToPatroling();
+        gracePeriodTimer = gracePeriodTime;
+    }
+
+    public bool IsInGracePeriod()
+    {
+        return gracePeriodTimer > 0;
     }
 
     IEnumerator BackToPatrol()
