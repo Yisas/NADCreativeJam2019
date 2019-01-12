@@ -433,7 +433,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.033333335
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 25476ccfeebf4934eba3cceca699ad4e, type: 2}
 --- !u!1 &871225496
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.033333335
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 4a6e34844a1c698408e81ab8db9b5291, type: 2}
 --- !u!1001 &1410876555
@@ -1030,36 +1030,6 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1577947265}
-    - target: {fileID: 135097856795999216, guid: 3bb8f2006914f274bbad6272335b55d7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114531679177712884, guid: 3bb8f2006914f274bbad6272335b55d7,
-        type: 2}
-      propertyPath: RotationSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 136364757129211904, guid: 3bb8f2006914f274bbad6272335b55d7,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136232870046318536, guid: 3bb8f2006914f274bbad6272335b55d7,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114586815343363832, guid: 3bb8f2006914f274bbad6272335b55d7,
-        type: 2}
-      propertyPath: timer
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114816786583850710, guid: 3bb8f2006914f274bbad6272335b55d7,
-        type: 2}
-      propertyPath: fowAngle
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bb8f2006914f274bbad6272335b55d7, type: 2}
   m_IsPrefabParent: 0
