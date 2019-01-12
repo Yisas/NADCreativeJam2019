@@ -5,12 +5,13 @@ using UnityEngine;
 public class Room : MonoBehaviour {
 
     public Transform playerRespawnLocation;
+    public float AIDetectionZoneMultiplier = 1.0f;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<GameController>().SetActiveRoom(this);
+            FindObjectOfType<GameController>().SetActiveRoom(this, AIDetectionZoneMultiplier);
         }
     }
 

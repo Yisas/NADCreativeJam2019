@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SphereCollider))]
 public class PlayerDetection : MonoBehaviour
 {
     public Transform target;
