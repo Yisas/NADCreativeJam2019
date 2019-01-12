@@ -17,7 +17,7 @@ public class SeekingPlayerVision : MonoBehaviour {
 
     public GameObject Player;
     public float timer;
-    public bool PlayerVisible = true;
+    private Camouflage camouflage;
     public bool GetPlayer;
 
     // Use this for initialization
@@ -29,15 +29,15 @@ public class SeekingPlayerVision : MonoBehaviour {
         }
         agent = GetComponent<NavMeshAgent>();
         AIBehavior = GetComponent<AICharacterBehavior>();
+        camouflage = FindObjectOfType<Camouflage>();
 
         StartCoroutine(seekPlayer());
-
     }
 
     IEnumerator seekPlayer()
     {
         yield return new WaitForSeconds(timer);
-        if (PlayerVisible)
+        if (!camouflage.GetIsCamouflaging())
         {
             GetPlayer = true;
         }
@@ -54,8 +54,6 @@ public class SeekingPlayerVision : MonoBehaviour {
 
         // Set the agent to go to the currently selected destination.
         agent.destination = Player.transform.position;
-
-       
     }
 
     // Update is called once per frame
@@ -66,7 +64,6 @@ public class SeekingPlayerVision : MonoBehaviour {
         }
 
         Vector3 direction = (Player.transform.position - transform.position);
-
 
         if (direction.magnitude <= proximityDistanceForAttack)
         {

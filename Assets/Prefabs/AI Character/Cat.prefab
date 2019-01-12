@@ -108,8 +108,8 @@ GameObject:
   - component: {fileID: 195837772446818454}
   - component: {fileID: 114271310937818496}
   - component: {fileID: 114586815343363832}
-  - component: {fileID: 114196344834576494}
   - component: {fileID: 114127172451013514}
+  - component: {fileID: 114531679177712884}
   m_Layer: 8
   m_Name: Cat
   m_TagString: AICharacter
@@ -410,22 +410,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482112642069472}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f92695b210214f418f0bc52cf0c4f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114196344834576494
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1482112642069472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01961193fe79ffd4597425c867d2fb4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  proximityDistanceForAttack: 1
+  Player: {fileID: 0}
+  timer: 2
+  GetPlayer: 0
 --- !u!114 &114271310937818496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,6 +436,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &114531679177712884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1482112642069472}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01961193fe79ffd4597425c867d2fb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  Player: {fileID: 0}
+  RotationSpeed: 0
 --- !u!114 &114586815343363832
 MonoBehaviour:
   m_ObjectHideFlags: 1
