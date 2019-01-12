@@ -37,7 +37,7 @@ public class SeekingPlayerVision : MonoBehaviour {
     IEnumerator seekPlayer()
     {
         yield return new WaitForSeconds(timer);
-        if (!camouflage.GetIsCamouflaging())
+        if (!camouflage.GetIsCamouflaging() && !AIBehavior.IsInGracePeriod())
         {
             GetPlayer = true;
         }

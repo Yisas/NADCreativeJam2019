@@ -14,6 +14,9 @@ public class AICharacterBehavior : MonoBehaviour {
     private bool hearingPlayer = false;
     private bool patroling = true;
 
+    public float gracePeriodTime;
+    private float gracePeriodTimer = 0;
+
     private GameController gameController;
 
 	// Use this for initialization
@@ -26,7 +29,7 @@ public class AICharacterBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        gracePeriodTimer -= Time.deltaTime;
 	}
 
     public void AIHeardPlayer()
@@ -71,5 +74,11 @@ public class AICharacterBehavior : MonoBehaviour {
         Debug.Log("Attack!");
         gameController.KillPlayer();
         BackToPatroling();
+        gracePeriodTimer = gracePeriodTime;
+    }
+
+    public bool IsInGracePeriod()
+    {
+        return gracePeriodTimer <= 0;
     }
 }
