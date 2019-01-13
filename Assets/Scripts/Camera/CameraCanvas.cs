@@ -95,8 +95,8 @@ public class CameraCanvas : MonoBehaviour {
     public void UpdateCamouflageCooldown(float percentage)
     {
         Vector3 rectPosition = camouflageImage.rectTransform.localPosition;
-        rectPosition.y = -50 + 50 * (percentage);
+        rectPosition.x = -50 + 50 * (percentage);
         camouflageImage.rectTransform.localPosition = rectPosition;
-        camouflageImage.rectTransform.localScale = new Vector3(1, percentage, 1);
+        camouflageImage.rectTransform.localScale = new Vector3(percentage, 1, 1);
     }
 }
