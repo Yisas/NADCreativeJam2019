@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndLevelMenu : MonoBehaviour, CanvasCallbackReceiver {
+    public GameObject backgroundMusic;
+
     public void Execute()
     {
         SceneManager.LoadScene(1);
@@ -13,5 +15,6 @@ public class EndLevelMenu : MonoBehaviour, CanvasCallbackReceiver {
     public void Replay()
     {
         GetComponent<CameraCanvas>().FadeOutIn(this);
+        Instantiate(backgroundMusic);
     }
 }

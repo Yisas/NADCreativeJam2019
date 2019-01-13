@@ -46,7 +46,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             h = CrossPlatformInputManager.GetAxis("Horizontal");
             v = CrossPlatformInputManager.GetAxis("Vertical");
 
-            animator.SetFloat("moveSpeed", Mathf.Clamp(Mathf.Abs(h) + Mathf.Abs(v), 0, 2));
+            animator.SetFloat("moveSpeed", Mathf.Clamp(Mathf.Abs(h) + Mathf.Abs(v), 0, 1));
         }
 
 
