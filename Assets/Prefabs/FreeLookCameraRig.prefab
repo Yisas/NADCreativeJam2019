@@ -535,6 +535,9 @@ MonoBehaviour:
   m_text: 'Good luck getting out of here!
 
 
+    Cats can get more territorial around their favorite rooms. Beware!
+
+
     Press X to disguise yourself.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -604,12 +607,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 114940926725140692}
-    characterCount: 61
+    characterCount: 129
     spriteCount: 0
-    spaceCount: 11
-    wordCount: 11
+    spaceCount: 22
+    wordCount: 21
     linkCount: 0
-    lineCount: 3
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -703,7 +706,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 50}
+  m_SizeDelta: {x: 800, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224320405607241084
 RectTransform:
@@ -740,7 +743,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 800, y: 200}
+  m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224441218525565650
 RectTransform:
