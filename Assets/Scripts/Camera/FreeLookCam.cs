@@ -40,6 +40,11 @@ namespace UnityStandardAssets.Cameras
 			m_TransformTargetRot = transform.localRotation;
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            FindObjectOfType<CameraCanvas>().FadeIn();
+        }
 
         protected void Update()
         {
