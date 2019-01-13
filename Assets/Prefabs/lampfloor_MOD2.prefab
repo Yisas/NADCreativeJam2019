@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4127098818318202}
   - component: {fileID: 33866566601329798}
   - component: {fileID: 23270896461371718}
+  - component: {fileID: 65043967315220744}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -37,7 +38,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4565703317286066}
   - component: {fileID: 95838192331501556}
-  - component: {fileID: 64277540970907316}
   m_Layer: 0
   m_Name: lampfloor_MOD2
   m_TagString: Untagged
@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4754288522965694}
   - component: {fileID: 33301532815238390}
   - component: {fileID: 23240398959262740}
+  - component: {fileID: 65427718846521520}
   m_Layer: 0
   m_Name: pCylinder2
   m_TagString: Untagged
@@ -952,20 +953,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172940816531890}
   m_Mesh: {fileID: 4300014, guid: 9291a896ea5e1674490a4966591f460b, type: 3}
---- !u!64 &64277540970907316
-MeshCollider:
+--- !u!65 &65043967315220744
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1276055756500428}
+  m_GameObject: {fileID: 1172940816531890}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
+  m_Size: {x: 175.53197, y: 10.493071, z: 175.53197}
+  m_Center: {x: -0.0009765625, y: -0.00000011920952, z: 0.00024414062}
+--- !u!65 &65427718846521520
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1453593536428490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.000004, y: 703.82837, z: 17.320515}
+  m_Center: {x: -0.0009765625, y: 0, z: 0.00024366379}
 --- !u!95 &95838192331501556
 Animator:
   serializedVersion: 3
