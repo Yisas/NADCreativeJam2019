@@ -29,6 +29,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
+        private AudioSource audioSource;
+        public AudioClip[] stepSounds;
+
 
 		void Start()
 		{
@@ -40,6 +43,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
+
+            audioSource = GetComponent<AudioSource>();
 		}
 
 
@@ -221,5 +226,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
+
+        public void PlayStepSound()
+        {
+            audioSource.PlayOneShot(stepSounds[Random.Range(0, stepSounds.Length - 1)]);
+        }
 	}
 }
