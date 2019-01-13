@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/wesTestLevel.unity
     guid: 0f19ca03c417003449cf3f83fd411f36
+  - enabled: 1
+    path: Assets/Scenes/Final Level.unity
+    guid: ec42134e0f0aea34bb71525591e6488b
