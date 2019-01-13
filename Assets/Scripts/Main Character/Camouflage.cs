@@ -24,11 +24,15 @@ public class Camouflage : MonoBehaviour {
 
     private CameraCanvas cameraCanvas;
 
-	// Use this for initialization
-	void Start () {
+    private AudioSource audioSource;
+    public AudioClip camouflageSound;
+
+    // Use this for initialization
+    void Start () {
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
         skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         cameraCanvas = FindObjectOfType<CameraCanvas>();
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -81,6 +85,7 @@ public class Camouflage : MonoBehaviour {
         }
         else
         {
+            audioSource.PlayOneShot(camouflageSound);
             camouflageTimer = camouflageTime;
             canCAmouflage = false;
         }
