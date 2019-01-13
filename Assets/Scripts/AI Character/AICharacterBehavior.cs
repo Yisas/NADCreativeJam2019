@@ -24,6 +24,7 @@ public class AICharacterBehavior : MonoBehaviour {
 
     private AudioSource audioSource;
     public AudioClip alertSound;
+    public AudioClip[] attackSounds;
 
     private GameController gameController;
 
@@ -89,12 +90,18 @@ public class AICharacterBehavior : MonoBehaviour {
 
     public void Attack()
     {
+        if (IsInGracePeriod())
+            return;
+
         Debug.Log("Attack!");
         //gameController.KillPlayer();
         // Kill player will come from animation trigger at end of attack animation
         BackToPatroling();
         gracePeriodTimer = gracePeriodTime;
         animator.SetTrigger("attack");
+
+        foreach(AudioClip attackSound in attackSounds)
+            audioSource.PlayOneShot(attackSound);
     }
 
     public bool IsInGracePeriod()
