@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour, CanvasCallbackReceiver {
         {
             playerDetection.GetComponent<SphereCollider>().radius /= lastAIDetectionZoneMultiplier;
             playerDetection.GetComponent<SphereCollider>().radius *= AIDetectionZoneMultiplier;
+            playerDetection.hearingAreaVisualization.transform.localScale = new Vector3(playerDetection.hearingAreaVisualization.transform.localScale.x / lastAIDetectionZoneMultiplier, playerDetection.hearingAreaVisualization.transform.localScale.y, playerDetection.hearingAreaVisualization.transform.localScale.z / lastAIDetectionZoneMultiplier);
+            playerDetection.hearingAreaVisualization.transform.localScale = new Vector3(playerDetection.hearingAreaVisualization.transform.localScale.x * AIDetectionZoneMultiplier, playerDetection.hearingAreaVisualization.transform.localScale.y, playerDetection.hearingAreaVisualization.transform.localScale.z * AIDetectionZoneMultiplier);
             playerDetection.GetComponent<AICharacterBehavior>().gracePeriodTime /= lastAIGracePeriodMultiplier;
             playerDetection.GetComponent<AICharacterBehavior>().gracePeriodTime *= AIGracePeriodMultiplplier;
         }

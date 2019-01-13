@@ -23,6 +23,9 @@ public class PlayerDetection : MonoBehaviour
     /// </summary>
     private int layerMask;
 
+
+    public GameObject hearingAreaVisualization;
+
     // Use this for initialization
     void Start()
     {
