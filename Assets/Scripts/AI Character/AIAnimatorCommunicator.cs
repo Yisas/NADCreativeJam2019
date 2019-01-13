@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIAnimatorCommunicator : MonoBehaviour {
 
+    public AICharacterBehavior aiControllerbehavior;
     private GameController gameController;
 
     private void Start()
@@ -14,5 +15,10 @@ public class AIAnimatorCommunicator : MonoBehaviour {
     public void KillPlayer()
     {
         gameController.KillPlayer();
+    }
+
+    public void PlayAlertSound()
+    {
+        aiControllerbehavior.PlayAlertSound();
     }
 }

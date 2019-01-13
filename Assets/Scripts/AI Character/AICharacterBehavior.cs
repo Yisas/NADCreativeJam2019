@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SeekingPlayerNoise))]
 [RequireComponent(typeof(SeekingPlayerVision))]
 [RequireComponent(typeof(Patrol))]
+[RequireComponent(typeof(AudioSource))]
 public class AICharacterBehavior : MonoBehaviour {
 
     private SeekingPlayerNoise seekingPlayerNoiseBehavior;
@@ -21,6 +22,9 @@ public class AICharacterBehavior : MonoBehaviour {
     public float timer = 2;
     public Animator animator;
 
+    private AudioSource audioSource;
+    public AudioClip alertSound;
+
     private GameController gameController;
 
     // Use this for initialization
@@ -29,6 +33,7 @@ public class AICharacterBehavior : MonoBehaviour {
         seekingPlayerVisionBehavior = GetComponent<SeekingPlayerVision>();
         patrolBehavior = GetComponent<Patrol>();
         gameController = FindObjectOfType<GameController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -117,5 +122,11 @@ public class AICharacterBehavior : MonoBehaviour {
         }
 
         this.resting = resting;
+    }
+
+    public void PlayAlertSound()
+    {
+        if (!audioSource.isPlaying)
+            audioSource.PlayOneShot(alertSound);
     }
 }
