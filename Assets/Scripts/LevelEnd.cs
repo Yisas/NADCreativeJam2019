@@ -11,7 +11,7 @@ public class LevelEnd : MonoBehaviour, CanvasCallbackReceiver {
     }
     public void Execute()
     {
-        Destroy(GameObject.Find("Background Music"));
+        Destroy(FindObjectOfType<BackgroundMusic>().gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
