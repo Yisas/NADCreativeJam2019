@@ -12,7 +12,7 @@ public class Camouflage : MonoBehaviour {
     /// Time the camouflage lasts
     /// </summary>
     public float camouflageTime;
-    private SkinnedMeshRenderer[] meshRenderers;
+    private MeshRenderer[] meshRenderers;
     private bool isCamouflaging = false;
     /// <summary>
     /// To be affected by cooldown
@@ -23,7 +23,7 @@ public class Camouflage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -45,7 +45,7 @@ public class Camouflage : MonoBehaviour {
     void ToggleCamouflage(bool on)
     {
         isCamouflaging = on;
-        foreach (SkinnedMeshRenderer meshRenderer in meshRenderers)
+        foreach (MeshRenderer meshRenderer in meshRenderers)
         {
             meshRenderer.enabled = !isCamouflaging;
         }
