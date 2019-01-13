@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CameraCanvas : MonoBehaviour {
 
     public Image balckoutImage;
+    public Image camouflageImage;
     public float fadeSpeed;
 
     bool fadeOutIn = false;
@@ -89,5 +90,13 @@ public class CameraCanvas : MonoBehaviour {
         {
             fadeOutInDone = true;
         }
+    }
+
+    public void UpdateCamouflageCooldown(float percentage)
+    {
+        Vector3 rectPosition = camouflageImage.rectTransform.localPosition;
+        rectPosition.y = -50 + 50 * (percentage);
+        camouflageImage.rectTransform.localPosition = rectPosition;
+        camouflageImage.rectTransform.localScale = new Vector3(1, percentage, 1);
     }
 }

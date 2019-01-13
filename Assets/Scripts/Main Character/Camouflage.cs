@@ -19,18 +19,21 @@ public class Camouflage : MonoBehaviour {
     /// To be affected by cooldown
     /// </summary>
     private bool canCAmouflage = true;
-    private float camouflageCooldownTimer = 0;
+    private float cooldownTimer = 0;
     private float camouflageTimer = 0;
+
+    private CameraCanvas cameraCanvas;
 
 	// Use this for initialization
 	void Start () {
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
         skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        cameraCanvas = FindObjectOfType<CameraCanvas>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        camouflageCooldownTimer -= Time.deltaTime;
+        cooldownTimer -= Time.deltaTime;
         camouflageTimer -= Time.deltaTime;
         CheckForCamouflageTimer();
         CheckForCamouflageCooldown();
@@ -41,6 +44,20 @@ public class Camouflage : MonoBehaviour {
             {
                 ToggleCamouflage(true);
             }
+        }
+
+        if (isCamouflaging)
+        {
+            cameraCanvas.UpdateCamouflageCooldown(0);
+        }
+        else
+        {
+            float percentageOfCooldownDone = (cooldownTime - cooldownTimer) / cooldownTime;
+            if (cooldownTimer <= 0)
+            {
+                percentageOfCooldownDone = 1;
+            }
+            cameraCanvas.UpdateCamouflageCooldown(percentageOfCooldownDone);
         }
 	}
 
@@ -60,7 +77,7 @@ public class Camouflage : MonoBehaviour {
         if (!isCamouflaging)
         {
             //... start timer until can camouflage again
-            camouflageCooldownTimer = cooldownTime;
+            cooldownTimer = cooldownTime;
         }
         else
         {
@@ -79,7 +96,7 @@ public class Camouflage : MonoBehaviour {
 
     void CheckForCamouflageCooldown()
     {
-        if (!isCamouflaging && camouflageCooldownTimer <= 0)
+        if (!isCamouflaging && cooldownTimer <= 0)
         {
             canCAmouflage = true;            
         }
