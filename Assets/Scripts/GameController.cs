@@ -9,10 +9,12 @@ public class GameController : MonoBehaviour {
     private PlayerDetection[] playerDetections;
     private float lastAIDetectionZoneMultiplier = 1.0f;
     private float lastAIGracePeriodMultiplier = 1.0f;
+    private CameraCanvas cameraCanvas;
 
     // Use this for initialization
     void Start () {
         playerDetections = FindObjectsOfType<PlayerDetection>();
+        cameraCanvas = FindObjectOfType<CameraCanvas>();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +23,11 @@ public class GameController : MonoBehaviour {
 	}
 
     public void RespawnPlayer()
+    {
+        cameraCanvas.FadeOutIn(true);
+    }
+
+    public void RespawnPlayerCallback()
     {
         activeRoom.RespawnPlayer(player);
     }
