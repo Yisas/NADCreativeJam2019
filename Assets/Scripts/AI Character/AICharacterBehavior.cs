@@ -20,6 +20,7 @@ public class AICharacterBehavior : MonoBehaviour {
     private float gracePeriodTimer = 0;
 
     public float timer = 2;
+    public float timerDisableNoise;
     public Animator animator;
 
     private AudioSource audioSource;
@@ -71,9 +72,10 @@ public class AICharacterBehavior : MonoBehaviour {
         patroling = false;
         seeingPlayer = true;
 
-        seekingPlayerNoiseBehavior.enabled = false;
+        StartCoroutine(DisableSeekNoise());
         patrolBehavior.enabled = false;
         seekingPlayerVisionBehavior.enabled = true;
+        StartCoroutine(BackToPatrol2());
     }
 
     public void BackToPatroling()
@@ -114,6 +116,17 @@ public class AICharacterBehavior : MonoBehaviour {
     {
         yield return new WaitForSeconds(timer);
         BackToPatroling();
+    }
+
+    IEnumerator BackToPatrol2()
+    {
+        yield return new WaitForSeconds(6);
+        BackToPatroling();
+    }
+    IEnumerator DisableSeekNoise()
+    {
+        yield return new WaitForSeconds(timerDisableNoise);
+        seekingPlayerNoiseBehavior.enabled = false;
     }
 
     void UpdateAnimator()
