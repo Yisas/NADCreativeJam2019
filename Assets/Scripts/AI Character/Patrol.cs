@@ -6,11 +6,17 @@ using System.Collections;
 
 public class Patrol : MonoBehaviour
 {
-
+    
     public Transform[] points;
     private int destPoint = 0;
     private NavMeshAgent agent;
+    public float timeUntilRestMin;
+    public float timeUntilRestMax;
+    public float restTime;
 
+    private bool resting = false;
+    private float nextRestTimer;
+    private float restingTimer;
 
     void Start()
     {
@@ -42,6 +48,23 @@ public class Patrol : MonoBehaviour
 
     void Update()
     {
+        if (resting)
+        {
+            restingTimer -= Time.deltaTime;
+            if (restingTimer <= 0)
+            {
+                StopResting();
+            }
+        }
+        else
+        {
+            nextRestTimer -= Time.deltaTime;
+            if (nextRestTimer <= 0)
+            {
+                Rest();
+            }
+        }
+
         // Choose the next destination point when the agent gets
         // close to the current one.
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
@@ -56,5 +79,19 @@ public class Patrol : MonoBehaviour
     public void KeepMoving()
     {
         agent.isStopped = false;
+    }
+
+    public void Rest()
+    {
+        StopMoving();
+        resting = true;
+        restingTimer = restTime;
+    }
+
+    private void StopResting()
+    {
+        resting = false;
+        nextRestTimer = Random.Range(timeUntilRestMin, timeUntilRestMax);
+        KeepMoving();
     }
 }

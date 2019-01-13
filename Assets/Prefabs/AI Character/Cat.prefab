@@ -972,8 +972,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482112642069472}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -8.26, y: 0, z: 3.0699997}
+  m_LocalRotation: {x: -0, y: 0.022048593, z: -0, w: 0.99975693}
+  m_LocalPosition: {x: 4.08, y: 0.41, z: -10.439999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4537407092870406}
@@ -1607,6 +1607,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  timeUntilRestMin: 10
+  timeUntilRestMax: 40
+  restTime: 5
 --- !u!114 &114362329433338152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1618,7 +1621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46777a68f28d05c41a66b12e7c9b1dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AICharacterBehavior: {fileID: 114586815343363832}
 --- !u!114 &114531679177712884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1660,8 +1662,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   headPosition: {fileID: 4359553888693724}
-  fowAngle: 50
-  sphereOfHearingRadius: 0
+  fowAngle: 40
+  sphereOfHearingRadius: 5
   movementDetectionTreshold: 0.2
 --- !u!135 &135097856795999216
 SphereCollider:
