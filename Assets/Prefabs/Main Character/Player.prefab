@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511c50b6fe3216e4c92472e1d964d5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 2
+  cooldownTime: 4
   camouflageTime: 2
   camouflageSound: {fileID: 8300000, guid: 75737c4047723694c8818739a4acce42, type: 3}
 --- !u!114 &114738795259205090
