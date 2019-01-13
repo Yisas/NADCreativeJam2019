@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 19549d4b8ef7d3d4691f437827d2b184
+timeCreated: 1547383553
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Body
+    100002: ChamBody
+    100004: //RootNode
+    100006: EyeL
+    100008: EyeL1
+    100010: EyePupilL
+    100012: EyePupilR
+    100014: EyeR
+    100016: EyeR1
+    100018: HeadBot
+    100020: HeadTop
+    100022: Hips
+    100024: ikHandle1
+    100026: ikHandle2
+    100028: ikHandle3
+    100030: ikHandle4
+    100032: ikHandle6
+    100034: ikHandle7
+    100036: LegFL
+    100038: LegFL1
+    100040: LegFL2
+    100042: LegFL3
+    100044: LegFR
+    100046: LegFR1
+    100048: LegFR2
+    100050: LegFR3
+    100052: LegRL
+    100054: LegRL1
+    100056: LegRL2
+    100058: LegRL3
+    100060: LegRR
+    100062: LegRR1
+    100064: LegRR2
+    100066: LegRR3
+    100068: MasterControler
+    100070: MouthBot
+    100072: MouthTop
+    100074: Neck
+    100076: Shoulders
+    100078: Spine
+    100080: Tail
+    100082: Tail1
+    100084: Tail2
+    100086: Tail3
+    100088: Tail4
+    100090: Tail6
+    100092: Tail7
+    100094: Tail8
+    100096: Tail9
+    100098: Tongue
+    100100: Tongue1
+    100102: Tongue1 1
+    100104: Tongue2
+    100106: Tongue3
+    100108: Tongue4
+    400000: Body
+    400002: ChamBody
+    400004: //RootNode
+    400006: EyeL
+    400008: EyeL1
+    400010: EyePupilL
+    400012: EyePupilR
+    400014: EyeR
+    400016: EyeR1
+    400018: HeadBot
+    400020: HeadTop
+    400022: Hips
+    400024: ikHandle1
+    400026: ikHandle2
+    400028: ikHandle3
+    400030: ikHandle4
+    400032: ikHandle6
+    400034: ikHandle7
+    400036: LegFL
+    400038: LegFL1
+    400040: LegFL2
+    400042: LegFL3
+    400044: LegFR
+    400046: LegFR1
+    400048: LegFR2
+    400050: LegFR3
+    400052: LegRL
+    400054: LegRL1
+    400056: LegRL2
+    400058: LegRL3
+    400060: LegRR
+    400062: LegRR1
+    400064: LegRR2
+    400066: LegRR3
+    400068: MasterControler
+    400070: MouthBot
+    400072: MouthTop
+    400074: Neck
+    400076: Shoulders
+    400078: Spine
+    400080: Tail
+    400082: Tail1
+    400084: Tail2
+    400086: Tail3
+    400088: Tail4
+    400090: Tail6
+    400092: Tail7
+    400094: Tail8
+    400096: Tail9
+    400098: Tongue
+    400100: Tongue1
+    400102: Tongue1 1
+    400104: Tongue2
+    400106: Tongue3
+    400108: Tongue4
+    2300000: EyeL
+    2300002: EyePupilL
+    2300004: EyePupilR
+    2300006: EyeR
+    3300000: EyeL
+    3300002: EyePupilL
+    3300004: EyePupilR
+    3300006: EyeR
+    4300000: EyeL
+    4300002: Tongue
+    4300004: EyePupilL
+    4300006: EyeR
+    4300008: ChamBody
+    4300010: EyePupilR
+    7400000: Idle
+    7400002: Walk
+    7400004: Eyes
+    9500000: //RootNode
+    13700000: ChamBody
+    13700002: Tongue
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
