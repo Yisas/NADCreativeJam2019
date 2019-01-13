@@ -14,6 +14,7 @@ public class Patrol : MonoBehaviour
     public float timeUntilRestMax;
     public float restTime;
 
+    private AICharacterBehavior AICharacterBehavior;
     private bool resting = false;
     private float nextRestTimer;
     private float restingTimer;
@@ -21,6 +22,7 @@ public class Patrol : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        AICharacterBehavior = GetComponent<AICharacterBehavior>();
 
         // Disabling auto-braking allows for continuous movement
         // between points (ie, the agent doesn't slow down as it
@@ -83,6 +85,7 @@ public class Patrol : MonoBehaviour
 
     public void Rest()
     {
+        AICharacterBehavior.SetResting(true);
         StopMoving();
         resting = true;
         restingTimer = restTime;
@@ -90,6 +93,7 @@ public class Patrol : MonoBehaviour
 
     private void StopResting()
     {
+        AICharacterBehavior.SetResting(false);
         resting = false;
         nextRestTimer = Random.Range(timeUntilRestMin, timeUntilRestMax);
         KeepMoving();

@@ -13,6 +13,7 @@ public class AICharacterBehavior : MonoBehaviour {
     private bool seeingPlayer = false;
     private bool hearingPlayer = false;
     private bool patroling = true;
+    private bool resting = false;
 
     public float gracePeriodTime;
     private float gracePeriodTimer = 0;
@@ -44,6 +45,7 @@ public class AICharacterBehavior : MonoBehaviour {
         if (seeingPlayer)
             return;
 
+        resting = false;
         hearingPlayer = true;
         patroling = false;
         patrolBehavior.StopMoving();
@@ -57,6 +59,7 @@ public class AICharacterBehavior : MonoBehaviour {
     public void AISawPlayer()
     {
         Debug.Log("AI " + transform.name + " Seeing player");
+        resting = false;
         hearingPlayer = false;
         patroling = false;
         seeingPlayer = true;
@@ -68,6 +71,7 @@ public class AICharacterBehavior : MonoBehaviour {
 
     public void BackToPatroling()
     {
+        resting = false;
         hearingPlayer = false;
         seeingPlayer = false;
         patroling = true;
@@ -102,5 +106,16 @@ public class AICharacterBehavior : MonoBehaviour {
     void UpdateAnimator()
     {
         animator.SetBool("hunting", hearingPlayer || seeingPlayer);
+        animator.SetBool("resting", resting);
+    }
+
+    public void SetResting(bool resting)
+    {
+        if (resting)
+        {
+            animator.SetTrigger("rest");
+        }
+
+        this.resting = resting;
     }
 }
