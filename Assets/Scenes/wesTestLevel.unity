@@ -4268,6 +4268,11 @@ Prefab:
       propertyPath: sphereOfHearingRadius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114271310937818496, guid: 3bb8f2006914f274bbad6272335b55d7,
+        type: 2}
+      propertyPath: points.Array.data[5]
+      value: 
+      objectReference: {fileID: 1379595388}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bb8f2006914f274bbad6272335b55d7, type: 2}
   m_IsPrefabParent: 0

@@ -81,7 +81,8 @@ public class AICharacterBehavior : MonoBehaviour {
     public void Attack()
     {
         Debug.Log("Attack!");
-        gameController.KillPlayer();
+        //gameController.KillPlayer();
+        // Kill player will come from animation trigger at end of attack animation
         BackToPatroling();
         gracePeriodTimer = gracePeriodTime;
         animator.SetTrigger("attack");
