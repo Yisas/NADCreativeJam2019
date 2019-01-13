@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class LevelEnd : MonoBehaviour {
-
-    public AudioClip victorySound;
+public class LevelEnd : MonoBehaviour, CanvasCallbackReceiver {
 
     private void OnTriggerEnter(Collider other)
     {
-        AudioSource.PlayClipAtPoint(victorySound, transform.position);
+        FindObjectOfType<CameraCanvas>().FadeOutIn(this);
+    }
+    public void Execute()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
