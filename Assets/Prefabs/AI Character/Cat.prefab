@@ -1732,6 +1732,7 @@ MonoBehaviour:
   timerDisableNoise: 1
   animator: {fileID: 95076048747043668}
   alertSound: {fileID: 8300000, guid: 88b8c5269d48cdf45b4ec040ba3bd899, type: 3}
+  alertSoundVolume: 8
   attackSounds:
   - {fileID: 8300000, guid: e8838c6066e3a5147b7bd8cd5136fc57, type: 3}
   - {fileID: 8300000, guid: 9342cd75686ffb94db4c88c85fdd5eab, type: 3}

@@ -25,6 +25,7 @@ public class AICharacterBehavior : MonoBehaviour {
 
     private AudioSource audioSource;
     public AudioClip alertSound;
+    public float alertSoundVolume;
     public AudioClip[] attackSounds;
     public AudioClip restSound;
 
@@ -154,6 +155,6 @@ public class AICharacterBehavior : MonoBehaviour {
     public void PlayAlertSound()
     {
         if (!audioSource.isPlaying)
-            audioSource.PlayOneShot(alertSound);
+            audioSource.PlayOneShot(alertSound, alertSoundVolume);
     }
 }

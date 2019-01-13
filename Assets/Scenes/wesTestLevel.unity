@@ -3912,6 +3912,11 @@ Prefab:
       propertyPath: m_Speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114144314433361026, guid: 35121db8517013340bbfdedf57801eb2,
+        type: 2}
+      propertyPath: alertSoundVolume
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35121db8517013340bbfdedf57801eb2, type: 2}
   m_IsPrefabParent: 0
