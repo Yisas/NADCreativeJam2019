@@ -22,19 +22,19 @@ public class AICharacterBehavior : MonoBehaviour {
 
     private GameController gameController;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         seekingPlayerNoiseBehavior = GetComponent<SeekingPlayerNoise>();
         seekingPlayerVisionBehavior = GetComponent<SeekingPlayerVision>();
         patrolBehavior = GetComponent<Patrol>();
         gameController = FindObjectOfType<GameController>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update() {
         gracePeriodTimer -= Time.deltaTime;
         UpdateAnimator();
-	}
+    }
 
     public void AIHeardPlayer(Vector3 SoundPosition)
     {
@@ -51,7 +51,7 @@ public class AICharacterBehavior : MonoBehaviour {
         seekingPlayerNoiseBehavior.enabled = true;
         seekingPlayerNoiseBehavior.Init(SoundPosition);
         StartCoroutine(BackToPatrol());
-        
+
     }
 
     public void AISawPlayer()
@@ -100,6 +100,6 @@ public class AICharacterBehavior : MonoBehaviour {
 
     void UpdateAnimator()
     {
-        animator.SetBool("hunting", hearingPlayer);
+        animator.SetBool("hunting", hearingPlayer || seeingPlayer);
     }
 }
