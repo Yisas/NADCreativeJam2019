@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
     private Room activeRoom;
     private PlayerDetection[] playerDetections;
     private float lastAIDetectionZoneMultiplier = 1.0f;
+    private float lastAIGracePeriodMultiplier = 1.0f;
 
     // Use this for initialization
     void Start () {
@@ -24,15 +25,18 @@ public class GameController : MonoBehaviour {
         activeRoom.RespawnPlayer(player);
     }
 
-    public void SetActiveRoom(Room room, float AIDetectionZoneMultiplier)
+    public void SetActiveRoom(Room room, float AIDetectionZoneMultiplier, float AIGracePeriodMultiplplier)
     {
         activeRoom = room;
         foreach (PlayerDetection playerDetection in playerDetections)
         {
             playerDetection.GetComponent<SphereCollider>().radius /= lastAIDetectionZoneMultiplier;
             playerDetection.GetComponent<SphereCollider>().radius *= AIDetectionZoneMultiplier;
+            playerDetection.GetComponent<AICharacterBehavior>().gracePeriodTime /= lastAIGracePeriodMultiplier;
+            playerDetection.GetComponent<AICharacterBehavior>().gracePeriodTime *= AIGracePeriodMultiplplier;
         }
         lastAIDetectionZoneMultiplier = AIDetectionZoneMultiplier;
+        lastAIGracePeriodMultiplier = AIGracePeriodMultiplplier;
     }
 
     public void KillPlayer()

@@ -6,12 +6,13 @@ public class Room : MonoBehaviour {
 
     public Transform playerRespawnLocation;
     public float AIDetectionZoneMultiplier = 1.0f;
+    public float AIGracePeriodMultiplplier = 1.0f;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            FindObjectOfType<GameController>().SetActiveRoom(this, AIDetectionZoneMultiplier);
+            FindObjectOfType<GameController>().SetActiveRoom(this, AIDetectionZoneMultiplier, AIGracePeriodMultiplplier);
         }
     }
 
