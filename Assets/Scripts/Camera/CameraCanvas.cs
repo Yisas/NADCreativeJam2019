@@ -10,7 +10,7 @@ public class CameraCanvas : MonoBehaviour {
 
     bool fadeOutIn = false;
     bool fadeOutInDone = false;
-    bool callBack = false;
+    private CanvasCallbackReceiver callbackReceiver;
 
     GameController gameController;
 
@@ -25,21 +25,21 @@ public class CameraCanvas : MonoBehaviour {
         {
             fadeOutIn = false;
             fadeOutInDone = false;
-            if (callBack)
+            if (callbackReceiver != null)
             {
-                callBack = false;
-                gameController.RespawnPlayerCallback();
+                callbackReceiver.Execute();
+                callbackReceiver = null;
             }
 
             StartCoroutine("FadeInCoroutine");
         }
     }
 
-    public void FadeOutIn(bool callBack = false)
+    public void FadeOutIn(CanvasCallbackReceiver callbackReceiver = null)
     {
         fadeOutIn = true;
         StartCoroutine("FadeOutCoroutine");
-        this.callBack = callBack;
+        this.callbackReceiver = callbackReceiver;
     }
 
     public void FadeOut()

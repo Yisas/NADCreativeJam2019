@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour, CanvasCallbackReceiver {
 
     public Transform player;
     private Room activeRoom;
@@ -24,12 +25,7 @@ public class GameController : MonoBehaviour {
 
     public void RespawnPlayer()
     {
-        cameraCanvas.FadeOutIn(true);
-    }
-
-    public void RespawnPlayerCallback()
-    {
-        activeRoom.RespawnPlayer(player);
+        cameraCanvas.FadeOutIn(this);
     }
 
     public void SetActiveRoom(Room room, float AIDetectionZoneMultiplier, float AIGracePeriodMultiplplier)
@@ -49,5 +45,11 @@ public class GameController : MonoBehaviour {
     public void KillPlayer()
     {
         RespawnPlayer();
+    }
+
+    // Callback from canvas fade out to respawn player
+    public void Execute()
+    {
+        activeRoom.RespawnPlayer(player);
     }
 }
