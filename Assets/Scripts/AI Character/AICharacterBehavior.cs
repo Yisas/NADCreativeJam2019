@@ -25,6 +25,7 @@ public class AICharacterBehavior : MonoBehaviour {
     private AudioSource audioSource;
     public AudioClip alertSound;
     public AudioClip[] attackSounds;
+    public AudioClip restSound;
 
     private GameController gameController;
 
@@ -126,6 +127,12 @@ public class AICharacterBehavior : MonoBehaviour {
         if (resting)
         {
             animator.SetTrigger("rest");
+            audioSource.clip = restSound;
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.Stop();
         }
 
         this.resting = resting;
