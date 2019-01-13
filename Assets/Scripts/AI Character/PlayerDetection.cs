@@ -11,7 +11,6 @@ public class PlayerDetection : MonoBehaviour
     /// </summary>
     public Transform headPosition;
     public float fowAngle;
-    public float sphereOfHearingRadius;
     /// <summary>
     /// Sensitivity of how small the player input should be in order to hear the player
     /// </summary>

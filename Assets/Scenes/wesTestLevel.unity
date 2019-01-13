@@ -4018,6 +4018,21 @@ Prefab:
       propertyPath: points.Array.data[5]
       value: 
       objectReference: {fileID: 1379595388}
+    - target: {fileID: 114144314433361026, guid: 35121db8517013340bbfdedf57801eb2,
+        type: 2}
+      propertyPath: timerDisableNoise
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135056903611363034, guid: 35121db8517013340bbfdedf57801eb2,
+        type: 2}
+      propertyPath: m_Radius
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 195778103685811964, guid: 35121db8517013340bbfdedf57801eb2,
+        type: 2}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35121db8517013340bbfdedf57801eb2, type: 2}
   m_IsPrefabParent: 0
@@ -6807,11 +6822,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114816786583850710, guid: 3bb8f2006914f274bbad6272335b55d7,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 702445271}
     - target: {fileID: 114271310937818496, guid: 3bb8f2006914f274bbad6272335b55d7,
         type: 2}
       propertyPath: points.Array.data[0]
@@ -6837,6 +6847,11 @@ Prefab:
       propertyPath: points.Array.data[4]
       value: 
       objectReference: {fileID: 1577659908}
+    - target: {fileID: 114816786583850710, guid: 3bb8f2006914f274bbad6272335b55d7,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 702445271}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bb8f2006914f274bbad6272335b55d7, type: 2}
   m_IsPrefabParent: 0
@@ -7404,7 +7419,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
+  m_VoxelSize: 0.083333336
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 5162cbcdcb14aca499b54df159fdf236, type: 2}
 --- !u!1 &1796670894
