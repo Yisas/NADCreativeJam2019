@@ -18,6 +18,8 @@ public class AICharacterBehavior : MonoBehaviour {
     private float gracePeriodTimer = 0;
 
     public float timer = 2;
+    public Animator animator;
+
     private GameController gameController;
 
 	// Use this for initialization
@@ -31,6 +33,7 @@ public class AICharacterBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         gracePeriodTimer -= Time.deltaTime;
+        UpdateAnimator();
 	}
 
     public void AIHeardPlayer(Vector3 SoundPosition)
@@ -81,6 +84,7 @@ public class AICharacterBehavior : MonoBehaviour {
         gameController.KillPlayer();
         BackToPatroling();
         gracePeriodTimer = gracePeriodTime;
+        animator.SetTrigger("attack");
     }
 
     public bool IsInGracePeriod()
@@ -92,5 +96,10 @@ public class AICharacterBehavior : MonoBehaviour {
     {
         yield return new WaitForSeconds(timer);
         BackToPatroling();
+    }
+
+    void UpdateAnimator()
+    {
+        animator.SetBool("hunting", hearingPlayer);
     }
 }

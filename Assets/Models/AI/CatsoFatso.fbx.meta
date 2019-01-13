@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: c91a100243210e54ea9bfc40cbe1fe35
+timeCreated: 1547360624
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: BodyController
+    100002: CatsoFatso
+    100004: //RootNode
+    100006: CatsoFatsoCone
+    100008: FaceController
+    100010: ikHandle2
+    100012: ikHandle3
+    100014: ikHandle4
+    100016: ikHandle5
+    100018: ikHandle7
+    100020: ikHandle8
+    100022: joint1
+    100024: joint10
+    100026: joint11
+    100028: joint12
+    100030: joint13
+    100032: joint13 1
+    100034: joint14
+    100036: joint14 1
+    100038: joint15
+    100040: joint15 1
+    100042: joint16
+    100044: joint17
+    100046: joint17 1
+    100048: joint18
+    100050: joint18 1
+    100052: joint19
+    100054: joint19 1
+    100056: joint2
+    100058: joint20
+    100060: joint20 1
+    100062: joint25
+    100064: joint3
+    100066: joint31
+    100068: joint4
+    100070: joint5
+    100072: joint6
+    100074: joint7
+    100076: joint8
+    100078: joint9
+    100080: LegControllerFL
+    100082: LegControllerFR
+    100084: LegControllerRL
+    100086: LegControllerRR
+    100088: MasterCatCont
+    100090: TailController
+    400000: BodyController
+    400002: CatsoFatso
+    400004: //RootNode
+    400006: CatsoFatsoCone
+    400008: FaceController
+    400010: ikHandle2
+    400012: ikHandle3
+    400014: ikHandle4
+    400016: ikHandle5
+    400018: ikHandle7
+    400020: ikHandle8
+    400022: joint1
+    400024: joint10
+    400026: joint11
+    400028: joint12
+    400030: joint13
+    400032: joint13 1
+    400034: joint14
+    400036: joint14 1
+    400038: joint15
+    400040: joint15 1
+    400042: joint16
+    400044: joint17
+    400046: joint17 1
+    400048: joint18
+    400050: joint18 1
+    400052: joint19
+    400054: joint19 1
+    400056: joint2
+    400058: joint20
+    400060: joint20 1
+    400062: joint25
+    400064: joint3
+    400066: joint31
+    400068: joint4
+    400070: joint5
+    400072: joint6
+    400074: joint7
+    400076: joint8
+    400078: joint9
+    400080: LegControllerFL
+    400082: LegControllerFR
+    400084: LegControllerRL
+    400086: LegControllerRR
+    400088: MasterCatCont
+    400090: TailController
+    4300000: CatsoFatso
+    4300002: CatsoFatsoCone
+    7400000: Idle
+    7400002: Walk
+    7400004: Attack
+    7400006: Hunting
+    7400008: Sits
+    7400010: Exite
+    9500000: //RootNode
+    13700000: CatsoFatso
+    13700002: CatsoFatsoCone
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
